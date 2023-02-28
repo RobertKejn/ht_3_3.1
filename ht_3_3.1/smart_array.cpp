@@ -5,7 +5,7 @@
 
 smart_array::smart_array(int n) {
 	if (n >= 0) arr = new int[n];
-	else throw std::logic_error("array length must be greater than or equal to zero");
+	else throw std::length_error("array length must be greater than or equal to zero");
 	actual_length = n;
 }
 smart_array::~smart_array() {
@@ -41,10 +41,10 @@ void smart_array::add_element(int n) {
 
 int smart_array::operator[](int n) {
 	if (n < virtual_length) return arr[n];
-	else throw std::logic_error("Index is outside array bounds");
+	else throw std::out_of_range("Index is outside array bounds");
 }
 
 int smart_array::get_element(int n) {
 	if (n < virtual_length) return arr[n];
-	else throw std::logic_error("Index is outside array bounds");
+	else throw std::out_of_range("Index is outside array bounds");
 }
